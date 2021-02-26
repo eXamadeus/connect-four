@@ -17,15 +17,18 @@ const checkVerticalWin = (board: BoardState, location: Location, chip: ChipValue
   let numInCol = 0
   const column = board[location.x]
 
-  Object.keys(column).forEach((row) => {
+  for (const row of Object.keys(column)) {
     const rowIndex = parseInt(row)
 
-    if (column[rowIndex] === chip || rowIndex === location.y) {
+    const pointIsCorrect = column[rowIndex] === chip
+    const pointIsNewSelection = rowIndex === location.y
+
+    if (pointIsCorrect || pointIsNewSelection) {
       numInCol += 1
     } else if (numInCol < 4) {
       numInCol = 0
     }
-  })
+  }
 
   return numInCol >= 4
 }
@@ -33,17 +36,18 @@ const checkVerticalWin = (board: BoardState, location: Location, chip: ChipValue
 const checkHorizontalWin = (board: BoardState, location: Location, chip: ChipValue) => {
   let numInRow = 0
 
-  const yOffset = location.y
-
-  Object.keys(board).forEach((column) => {
+  for (const column of Object.keys(board)) {
     const columnIndex = parseInt(column)
 
-    if (board[columnIndex][yOffset] === chip || columnIndex === location.x) {
+    const pointIsCorrect = board[columnIndex][location.y] === chip
+    const pointIsNewSelection = columnIndex === location.x
+
+    if (pointIsCorrect || pointIsNewSelection) {
       numInRow += 1
     } else if (numInRow < 4) {
       numInRow = 0
     }
-  })
+  }
 
   return numInRow >= 4
 }
