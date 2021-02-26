@@ -36,9 +36,9 @@ const interactiveStyles = css`
 `
 
 export const Button = React.forwardRef<
-  any,
-  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & { css?: Styling }
->(({ css: style, children, ...buttonProps }, ref) => (
+  HTMLButtonElement,
+  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & { style?: Styling }
+>(({ style, children, ...buttonProps }, ref) => (
   <button ref={ref} css={[baseStyle, interactiveStyles, style]} {...buttonProps}>
     {children}
   </button>

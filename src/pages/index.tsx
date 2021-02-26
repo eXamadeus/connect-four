@@ -5,22 +5,12 @@ import React from 'react'
 import { Button } from '../components/Button/Button.component'
 import { Title } from '../components/Title/Title.component'
 import { FullPageCenteredFlexContainer } from '../layout/FullPageCenteredFlexContainer'
-import { selectPlayerTurn } from '../store/game/game.selectors'
-import { useSelector } from '../store/utils'
 
 const IndexPage: React.FC = () => {
-  const playerTurn = useSelector(selectPlayerTurn)
-
   return (
     <FullPageCenteredFlexContainer>
       <div>
         <Title>Connect Four Game</Title>
-        <Title
-          css={css`
-            font-size: 2rem;
-          `}>
-          It{"'"}s {`${playerTurn}'s`} turn
-        </Title>
         <div>
           <h4>
             Designed by{' '}
