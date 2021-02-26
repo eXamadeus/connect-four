@@ -30,14 +30,15 @@ module.exports = {
   },
   rules: {
     // Opt-in
-    '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/explicit-member-accessibility': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'unused-imports/no-unused-imports-ts': 'error',
 
     // Opt-out
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'react/prop-types': 'off',
     'react/jsx-wrap-multilines': 'off',
     'react/jsx-indent': 'off',

@@ -1,8 +1,9 @@
-import { AppComponent } from 'next/dist/next-server/lib/router/router'
 import Head from 'next/head'
 import * as React from 'react'
 
-const App: AppComponent = ({ Component, pageProps }) => {
+import { wrapper } from '../store/wrapper'
+
+const App = wrapper.withRedux(({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -11,6 +12,6 @@ const App: AppComponent = ({ Component, pageProps }) => {
       <Component {...pageProps} />
     </>
   )
-}
+})
 
 export default App
