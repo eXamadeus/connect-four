@@ -24,12 +24,13 @@
     "lint:test": "eslint . --cache --ext js,jsx,ts,tsx",
     "storybook": "start-storybook -s ./public -p 6006 --docs",
     "storybook:build": "build-storybook -s ./public --docs",
-    "validate": "run-p --print-label lint:test format:test test build"
+    "validate": "run-p --print-label lint:test format:test test build",
+    "validate:push": "run-p --print-label test build"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn validate:push"
     }
   },
   "lint-staged": {
