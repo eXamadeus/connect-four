@@ -4,16 +4,16 @@ import * as React from 'react'
 import { Styling } from '../../styles/types'
 
 export type TitleProps = {
-  styles?: Styling
+  style?: Styling
 }
 
-export const Title: React.FC<TitleProps> = ({ children, styles }) => (
+export const Title: React.FC<TitleProps> = ({ children, style }) => (
   <h1
     css={[
       css`
         font-size: 3rem;
       `,
-      styles,
+      style,
     ]}>
     {children}
   </h1>

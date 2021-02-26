@@ -12,8 +12,16 @@ export const gameReducer = createReducer<'game'>({
         turn: action.payload.firstPlayer,
         board: createBoardState(8),
       }))
-      .addCase(gameActions.makeMove.fulfilled, () => {
-        // check game state for open position in row
-        // move item to row
+      .addCase(gameActions.makeMove.fulfilled, (slice, { payload }) => {
+        if (slice.state !== 'playing') return slice
+
+        const { board, turn } = slice
+        const { x, y, win } = payload
+
+        const newBoard = { ...board, [x]: { ...board[x], [y]: turn } }
+
+        return win
+          ? { state: 'game over', board: newBoard, winner: turn }
+          : { state: 'playing', board: newBoard, turn: turn === 'red' ? 'blue' : 'red' }
       }),
 })

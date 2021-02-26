@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Board } from '../components/Board/Board.component'
+import { Button } from '../components/Button/Button.component'
 import { Title } from '../components/Title/Title.component'
 import { FullPageCenteredFlexContainer } from '../layout/FullPageCenteredFlexContainer'
 import { gameActions } from '../store/game/game.actions'
@@ -23,16 +24,32 @@ const GamePage: React.FC = () => {
 
   return (
     <>
-      <Title>Playing Connect Four</Title>
+      <Title>Connect Four</Title>
       <FullPageCenteredFlexContainer>
-        <Board />
-        <h2
+        <div
           css={css`
-            margin-top: 2rem;
-            font-size: 2rem;
+            display: flex;
+            align-content: space-between;
+            width: ${75 * 8}px;
+            margin-bottom: 2rem;
           `}>
-          It{"'"}s {`${playerTurn}'s`} turn
-        </h2>
+          <Title
+            style={css`
+              flex: 1 0 auto;
+            `}>
+            {gameState === 'game over'
+              ? `${playerTurn?.[0]?.toUpperCase()}${playerTurn?.slice(1)} won!`
+              : `It's ${playerTurn}'s turn`}
+          </Title>
+          <Button
+            onClick={() => dispatch(gameActions.start({ firstPlayer: playerTurn ?? 'blue' }))}
+            css={css`
+              margin-left: 2rem;
+            `}>
+            {gameState === 'game over' ? 'Play again' : 'Restart'}
+          </Button>
+        </div>
+        <Board />
       </FullPageCenteredFlexContainer>
     </>
   )

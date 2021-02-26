@@ -6,15 +6,19 @@ import { createBoardState } from '../../store/game/logic/createBoardState'
 
 # Board
 
-export const boardState = createBoardState(8)
-boardState[0][7] = 'blue'
-boardState[2][7] = 'red'
-boardState[2][6] = 'blue'
-boardState[3][7] = 'blue'
+export const boardState = createBoardState(4)
+boardState[1][3] = 'blue'
+boardState[2][1] = 'red'
+boardState[2][2] = 'blue'
+boardState[2][3] = 'red'
+boardState[3][0] = 'red'
+boardState[3][1] = 'blue'
+boardState[3][2] = 'red'
+boardState[3][3] = 'red'
 
 <Preview>
   <Story name='Board'>
-    <BoardUI board={boardState} />
+    <BoardUI board={boardState} player={'blue'} />
   </Story>
 </Preview>
 

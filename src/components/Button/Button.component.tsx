@@ -8,10 +8,12 @@ const baseStyle = css`
   border: 0;
   border-radius: 10px;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   font-weight: bold;
   font-size: 2rem;
   padding: 0.5rem 2rem;
+  user-select: none;
 `
 
 const interactiveStyles = css`

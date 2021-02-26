@@ -1,14 +1,14 @@
 import { ArgsTable, Meta, Preview, Story } from '@storybook/addon-docs/blocks'
 
-import { NodeUI } from './Node.component'
+import { Node } from './Node.component'
 
-<Meta title='Board/Parts/Node' component={NodeUI} />
+<Meta title='Board/Parts/Node' component={Node} />
 
 # Node
 
 <Preview>
   <Story name='Node'>
-    <NodeUI chip='blue' player='red' />
+    <Node chip='blue' player='red' />
   </Story>
 </Preview>
 
@@ -17,27 +17,27 @@ import { NodeUI } from './Node.component'
 <Preview>
   <Story name='Node hover options'>
     <div style={{ height: '75px' }}>
-      <NodeUI chip='empty' player='red' />
-      <NodeUI chip='empty' player='red' />
+      <Node chip='empty' player='red' />
+      <Node chip='empty' player='red' />
     </div>
     <div>
-      <NodeUI chip='blue' player='red' />
-      <NodeUI chip='red' player='red' />
+      <Node chip='blue' player='red' />
+      <Node chip='red' player='red' />
     </div>
     <div style={{ height: '75px' }}>
-      <NodeUI chip='empty' player='blue' />
-      <NodeUI chip='empty' player='blue' />
+      <Node chip='empty' player='blue' />
+      <Node chip='empty' player='blue' />
     </div>
     <div>
-      <NodeUI chip='blue' player='red' />
-      <NodeUI chip='red' player='red' />
+      <Node chip='blue' player='red' />
+      <Node chip='red' player='red' />
     </div>
   </Story>
 </Preview>
 
 ## Controlled Node
 
-export const Template = ({ chip, ...args }) => <NodeUI {...args} chip={chip} />
+export const Template = ({ chip, ...args }) => <Node {...args} chip={chip} />
 
 <Story
   name='Controlled Node'

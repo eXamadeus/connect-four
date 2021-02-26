@@ -2,7 +2,8 @@ export type Player = 'red' | 'blue'
 export type ChipValue = Player | 'empty'
 
 export type BoardState = { [xOffset: number]: { [yOffset: number]: ChipValue } }
-export type ChipLocation = { x: number; y: number; chip: ChipValue }
+export type Location = { x: number; y: number }
+export type Move = { x: number; y: number; win: boolean }
 
 interface NotPlaying {
   state: 'not playing'
