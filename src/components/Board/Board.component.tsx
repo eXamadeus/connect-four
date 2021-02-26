@@ -20,21 +20,22 @@ interface BoardProps {
 export const BoardUI: FC<BoardProps> = ({ board, nodeSize = 75, player, dispatch }) => {
   return (
     <>
-      {Object.keys(board).map((colIdx) => (
+      {Object.keys(board).map((yOffset) => (
         <div
           css={css`
             margin: 0;
             height: ${nodeSize}px;
           `}
-          key={`row:${colIdx}`}>
-          {Object.keys(board[parseInt(colIdx)]).map((rowIdx) => (
+          key={`col:${yOffset}`}>
+          {Object.keys(board[parseInt(yOffset)]).map((xOffset) => (
             <Node
-              key={`${rowIdx},${colIdx}`}
+              label={`Node ${xOffset}, ${yOffset}`}
+              key={`${xOffset},${yOffset}`}
               size={nodeSize}
-              chip={board[parseInt(rowIdx)][parseInt(colIdx)]}
+              chip={board[parseInt(xOffset)][parseInt(yOffset)]}
               player={player}
               onClick={() => {
-                dispatch?.(gameActions.makeMove({ x: parseInt(rowIdx), y: parseInt(colIdx) }))
+                dispatch?.(gameActions.makeMove({ x: parseInt(xOffset), y: parseInt(yOffset) }))
               }}
             />
           ))}

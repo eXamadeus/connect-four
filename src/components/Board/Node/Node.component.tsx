@@ -6,6 +6,7 @@ import { ChipValue, Player } from '../../../store/game/game.types'
 interface NodeProps {
   chip: ChipValue
   onClick: () => void
+  label: string
   player?: Player
   size?: number
 }
@@ -13,7 +14,7 @@ interface NodeProps {
 /**
  * SVG styling concept taken from https://rossta.net/blog/connect-four-with-svg-pattern-masking.html
  */
-export const Node: React.FC<NodeProps> = ({ size = 75, chip, player, onClick }) => {
+export const Node: React.FC<NodeProps> = ({ size = 75, chip, player, onClick, label }) => {
   const style =
     chip === 'empty' && player
       ? css`
@@ -27,7 +28,14 @@ export const Node: React.FC<NodeProps> = ({ size = 75, chip, player, onClick }) 
 
   return (
     <>
-      <svg onClick={onClick} css={style} width={size} viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
+      <svg
+        role='button'
+        aria-label={label}
+        onClick={onClick}
+        css={style}
+        width={size}
+        viewBox='0 0 100 100'
+        xmlns='http://www.w3.org/2000/svg'>
         <defs>
           <pattern id='cell-pattern' patternUnits='userSpaceOnUse' width='100' height='100'>
             <circle cx='50' cy='50' r='45' fill='black' />
@@ -42,7 +50,15 @@ export const Node: React.FC<NodeProps> = ({ size = 75, chip, player, onClick }) 
         ) : chip === 'blue' ? (
           <circle cx='50' cy='50' r='45' fill='#254689' />
         ) : undefined}
-        <rect width='100' height='100' fill='cadetblue' mask='url(#cell-mask)' />
+        <rect
+          css={css`
+            pointer-events: none;
+          `}
+          width='100'
+          height='100'
+          fill='cadetblue'
+          mask='url(#cell-mask)'
+        />
       </svg>
       <style jsx>{`
         .circle {

@@ -24,7 +24,5 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-// An example noop command that does nothing...
-Cypress.Commands.add('noop', () => {
-  return cy
-})
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@testing-library/cypress/add-commands'
