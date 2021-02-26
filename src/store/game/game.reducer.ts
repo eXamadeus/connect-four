@@ -1,6 +1,6 @@
 import { createReducer } from '../utils'
-import { createBoard } from './board'
 import { gameActions } from './game.actions'
+import { createBoardState } from './logic/createBoardState'
 
 export const gameReducer = createReducer<'game'>({
   name: 'game',
@@ -10,7 +10,7 @@ export const gameReducer = createReducer<'game'>({
       .addCase(gameActions.start, (slice, action) => ({
         state: 'playing',
         turn: action.payload.firstPlayer,
-        board: createBoard(8),
+        board: createBoardState(8),
       }))
       .addCase(gameActions.makeMove.fulfilled, () => {
         // check game state for open position in row

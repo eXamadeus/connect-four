@@ -6,7 +6,7 @@ import { Title } from './Title.component'
 
 describe('Title Component', () => {
   it('renders', async () => {
-    render(<Title content={'Example Component'} />)
+    render(<Title>Example Component</Title>)
     expect(await screen.findByText('Example Component')).toBeInTheDocument()
   })
 })

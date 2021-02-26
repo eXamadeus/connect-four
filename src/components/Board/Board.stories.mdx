@@ -1,0 +1,34 @@
+import { ArgsTable, Meta, Preview, Story } from '@storybook/addon-docs/blocks'
+import { BoardUI } from './Board.component'
+import { createBoardState } from '../../store/game/logic/createBoardState'
+
+<Meta title='Board/Example Board' component={BoardUI} />
+
+# Board
+
+export const boardState = createBoardState(8)
+boardState[0][7] = 'blue'
+boardState[2][7] = 'red'
+boardState[2][6] = 'blue'
+boardState[3][7] = 'blue'
+
+<Preview>
+  <Story name='Board'>
+    <BoardUI board={boardState} />
+  </Story>
+</Preview>
+
+## Controlled Board
+
+export const Template = (args) => <BoardUI {...args} />
+
+<Story
+  name='Controlled Board'
+  args={{
+    nodeSize: 20,
+    board: boardState,
+  }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story={'Controlled Board'} />

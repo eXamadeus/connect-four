@@ -1,0 +1,51 @@
+import { ArgsTable, Meta, Preview, Story } from '@storybook/addon-docs/blocks'
+
+import { NodeUI } from './Node.component'
+
+<Meta title='Board/Parts/Node' component={NodeUI} />
+
+# Node
+
+<Preview>
+  <Story name='Node'>
+    <NodeUI chip='blue' player='red' />
+  </Story>
+</Preview>
+
+# Node hover options
+
+<Preview>
+  <Story name='Node hover options'>
+    <div style={{ height: '75px' }}>
+      <NodeUI chip='empty' player='red' />
+      <NodeUI chip='empty' player='red' />
+    </div>
+    <div>
+      <NodeUI chip='blue' player='red' />
+      <NodeUI chip='red' player='red' />
+    </div>
+    <div style={{ height: '75px' }}>
+      <NodeUI chip='empty' player='blue' />
+      <NodeUI chip='empty' player='blue' />
+    </div>
+    <div>
+      <NodeUI chip='blue' player='red' />
+      <NodeUI chip='red' player='red' />
+    </div>
+  </Story>
+</Preview>
+
+## Controlled Node
+
+export const Template = ({ chip, ...args }) => <NodeUI {...args} chip={chip} />
+
+<Story
+  name='Controlled Node'
+  args={{
+    chip: 'empty',
+    player: 'red',
+  }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story={'Controlled Node'} />

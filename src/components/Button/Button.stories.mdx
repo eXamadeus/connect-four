@@ -1,0 +1,26 @@
+import { ArgsTable, Meta, Preview, Story } from '@storybook/addon-docs/blocks'
+import { Button } from './Button.component'
+
+<Meta title='General/Button' component={Button} />
+
+# Button
+
+<Preview>
+  <Story name='Button'>
+    <Button>Click Me!</Button>
+  </Story>
+</Preview>
+
+## Controlled Button
+
+export const Template = ({ content, ...args }) => <Button {...args}>{content}</Button>
+
+<Story
+  name='Controlled Button'
+  args={{
+    content: 'Play',
+  }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story={'Controlled Button'} />

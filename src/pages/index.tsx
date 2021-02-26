@@ -1,37 +1,46 @@
 import { css } from '@emotion/core'
+import Link from 'next/link'
 import React from 'react'
 
+import { Button } from '../components/Button/Button.component'
 import { Title } from '../components/Title/Title.component'
+import { FullPageCenteredFlexContainer } from '../layout/FullPageCenteredFlexContainer'
+import { selectPlayerTurn } from '../store/game/game.selectors'
+import { useSelector } from '../store/utils'
 
-const flexFill = css`
-  flex: 1 0 100%;
-`
+const IndexPage: React.FC = () => {
+  const playerTurn = useSelector(selectPlayerTurn)
 
-const IndexPage: React.FC = () => (
-  <div
-    css={css`
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100vh;
-    `}>
-    <div
-      css={css`
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-end;
-        width: 23rem;
-      `}>
-      <Title styles={[flexFill]} content={'Next.js Template'} />
-      <h4 css={flexFill}>
-        Designed by{' '}
-        <a href='https://github.com/examadeus' target='_blank' rel='noreferrer'>
-          @eXamadeus
-        </a>
-      </h4>
-    </div>
-  </div>
-)
+  return (
+    <FullPageCenteredFlexContainer>
+      <div>
+        <Title>Connect Four Game</Title>
+        <Title
+          css={css`
+            font-size: 2rem;
+          `}>
+          It{"'"}s {`${playerTurn}'s`} turn
+        </Title>
+        <div>
+          <h4>
+            Designed by{' '}
+            <a href='https://github.com/examadeus' target='_blank' rel='noreferrer'>
+              Julian
+            </a>
+          </h4>
+        </div>
+      </div>
+
+      <div
+        css={css`
+          margin-top: 3rem;
+        `}>
+        <Link href={'/game'}>
+          <Button>Play</Button>
+        </Link>
+      </div>
+    </FullPageCenteredFlexContainer>
+  )
+}
 
 export default IndexPage
