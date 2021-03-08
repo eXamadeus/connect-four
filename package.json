@@ -51,7 +51,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/plugin-transform-react-jsx": "^7.12.5",
-    "@babel/runtime": "^7.13.7",
+    "@babel/runtime": "^7.13.9",
     "@emotion/babel-plugin": "^11.1.2",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/eslint-plugin": "^11.2.0",
