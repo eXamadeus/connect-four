@@ -62,7 +62,7 @@
     "@storybook/react": "^6.1.21",
     "@testing-library/cypress": "^7.0.4",
     "@testing-library/dom": "^7.29.6",
-    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.22",
     "@types/next": "^9.0.0",
