@@ -59,7 +59,7 @@
     "@storybook/addon-docs": "^6.3.2",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addons": "^6.1.18",
-    "@storybook/react": "^6.2.9",
+    "@storybook/react": "^6.3.6",
     "@testing-library/cypress": "^7.0.5",
     "@testing-library/dom": "^7.29.6",
     "@testing-library/jest-dom": "^5.14.1",
