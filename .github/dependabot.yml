@@ -1,0 +1,32 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  labels:
+  - dependencies
+  - automerge
+  ignore:
+  - dependency-name: "@emotion/core"
+    versions:
+    - ">= 11.a, < 12"
+  - dependency-name: "@storybook/addons"
+    versions:
+    - 6.1.21
+    - 6.2.2
+    - 6.2.7
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.13.13
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.18.0
+  - dependency-name: cypress
+    versions:
+    - 6.6.0
+  - dependency-name: next
+    versions:
+    - 10.0.8
